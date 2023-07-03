@@ -2,13 +2,23 @@
 
 declare(strict_types=1);
 
-require_once "./src/controllers/login.php";
+$request = htmlspecialchars($_SERVER["REQUEST_URI"]);
+$viewDir = "/templates/";
+$ctrlDir = "/src/controllers/";
 
-if(isset($_POST["email"]) && isset($_POST["password"])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    
-    login($email, $password);
-} else {
-    login();
+switch($request) {
+    case "":
+    case "/": 
+        require __DIR__ . $ctrlDir . "home.php";
+        break;
+    case "/login": 
+        require __DIR__ . $ctrlDir . "login.php";
+        break;
+    case "/register": 
+        require __DIR__ . $ctrlDir . "register.php";
+        break;
+    default:
+    http_response_code(404);
+    require __DIR__ . $viewDir . "404.php";
+    break;
 }
