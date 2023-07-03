@@ -1,0 +1,3 @@
+<header>
+    Great banner
+</header>

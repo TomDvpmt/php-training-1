@@ -1,0 +1,11 @@
+.form {
+    max-width: 300px;
+    margin: 4rem auto;
+
+    &__field {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

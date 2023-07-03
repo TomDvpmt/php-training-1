@@ -1,0 +1,10 @@
+<?php $title = "PHP training"; ?>
+
+<?php ob_start(); ?>
+
+<h1>Home</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, ea? Maxime voluptatibus, voluptas in voluptatem deserunt corporis quas neque illo culpa nam asperiores, animi sunt assumenda distinctio alias autem consectetur at? Molestias recusandae itaque ipsam odio assumenda magnam eius facilis minus. Deserunt magnam dolor tempore accusamus quo? Obcaecati, odio at.</p>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require "./templates/layout.php";
