@@ -1,3 +1,7 @@
+:root {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
 *,
 *::after,
 *::before {
@@ -12,4 +16,22 @@ body {
 
 .main {
     flex-grow: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+span,
+p {
+    color: $color-secondary-darker;
+}
+
+h1 {
+    margin: 4rem 0;
+    text-align: center;
 }

@@ -16,9 +16,9 @@ class User {
     public function login($pdo) {
         // check in database
         // if no user return error message
-        // else setUserId() and return user info 
+        // else setUserId() and return user info
+        // put user info in session
         header("Location: " . "/");
     }
 
 }
-

@@ -1,24 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <?php 
 
-declare(strict_types=1);
-
 $request = htmlspecialchars($_SERVER["REQUEST_URI"]);
-$viewDir = "/templates/";
-$ctrlDir = "/src/controllers/";
+$viewDir = "./src/view/";
+$ctrlDir = "./src/controllers/";
 
 switch($request) {
     case "":
     case "/": 
-        require __DIR__ . $ctrlDir . "home.php";
+        require $ctrlDir . "home.php";
         break;
     case "/login": 
-        require __DIR__ . $ctrlDir . "login.php";
+        require $ctrlDir . "login.php";
         break;
     case "/register": 
-        require __DIR__ . $ctrlDir . "register.php";
+        require $ctrlDir . "register.php";
         break;
     default:
-    http_response_code(404);
-    require __DIR__ . $viewDir . "404.php";
-    break;
+        http_response_code(404);
+        require $viewDir . "pages/404.php";
+        break;
 }
+
+?>
+
+</body>
+</html>

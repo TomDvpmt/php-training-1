@@ -1,4 +1,4 @@
 <?php 
 
 $root = htmlspecialchars($_SERVER["DOCUMENT_ROOT"]);
-require $root . "/templates/home.php";
+require_once $root . "/src/view/pages/home.php";

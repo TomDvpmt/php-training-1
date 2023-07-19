@@ -2,8 +2,9 @@
 
 <?php ob_start(); ?>
 
-<?php echo isset($login_error) ? "<p>" . $login_error . "</p>" : null; ?>
+
 <form action="" method="POST" class="form">
+    <?php echo isset($login_error) ? "<p class='error'>" . $login_error . "</p>" : null; ?>
     <div class="form__field">
         <label for="email">E-mail address :</label>
         <input type="email" name="email" value="<?= $email; ?>" />
@@ -12,12 +13,12 @@
         <label for="password">Password :</label>
         <input type="password" name="password" value="<?= $password; ?>" />
     </div>
-    <button type="submit">Log in</button>
+    <button class="button" type="submit" name="submit">Log in</button>
 </form>
 
 <?php $content = ob_get_clean(); 
 
-require $_SERVER["DOCUMENT_ROOT"] . "/templates/layout.php"; ?>
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/view/layout.php"; ?>
 
 
 

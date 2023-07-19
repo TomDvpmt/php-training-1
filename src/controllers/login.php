@@ -2,8 +2,8 @@
 
 $root = htmlspecialchars($_SERVER["DOCUMENT_ROOT"]);
 
-require $root . "/src/model/User.php";
-require $root . "/src/model/Database.php";
+require_once $root . "/src/model/User.php";
+require_once $root . "/src/model/Database.php";
 
 if(isset($_POST["email"]) && isset($_POST["password"])) {
     
@@ -23,4 +23,4 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     $password = "";
 }
 
-require $root . "/templates/login.php";
+require_once $root . "/src/view/pages/login.php";
