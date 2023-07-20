@@ -4,7 +4,7 @@
 
 
 <form method="POST" class="form">
-    <?php echo isset($register_error) ? "<p class='error'>" . $register_error . "</p>" : null; ?>
+    <?php echo isset($registerErrors) ? "<p class='error'>" . $registerErrors . "</p>" : null; ?>
     <div class="form__field">
         <label for="email">Email address :</label>
         <input type="email" name="email" value="<?= $email; ?>" />
@@ -14,12 +14,12 @@
         <input type="password" name="password" value="<?= $password; ?>" />
     </div>
     <div class="form__field">
-        <label for="password_confirm">Confirm password :</label>
-        <input type="password" name="password_confirm" value="<?= $password_confirm; ?>" />
+        <label for="passwordConfirm">Confirm password :</label>
+        <input type="password" name="passwordConfirm" value="<?= $passwordConfirm; ?>" />
     </div>
     <button class="button" type="submit" name="submit">Register</button>
 </form>
 
 <?php $content = ob_get_clean(); 
 
-require_once $view_dir . "layout.php";
+require_once $viewDir . "layout.php";

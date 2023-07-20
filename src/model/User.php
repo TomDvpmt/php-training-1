@@ -10,20 +10,12 @@ class User {
         private array $purchasedItems = []
         ) {}
 
-    private function setUserId($id) {
-        $this->userId = $id;
-    }
-
     public function register($pdo) {
         //
         
     }
 
     public function login($pdo) {
-        if(!self::userExists($pdo)) {
-            return false;
-        }
-
         $sql = "";
         $statement = $pdo->prepare();
 
@@ -35,7 +27,7 @@ class User {
         // redirect home
     }
 
-    private function userExists($pdo) {
+    public function checkIfUserExists($pdo) {
         $sql = "SELECT * FROM users WHERE email = :email";
         $statement = $pdo->prepare($sql);
         $statement->execute(["email" => $this->email]);

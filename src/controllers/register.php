@@ -1,20 +1,20 @@
 <?php 
 
-require_once $model_dir . "User.php";
-require_once $model_dir . "Database.php";
+require_once $modelDir . "User.php";
+require_once $modelDir . "Database.php";
 
-if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["password_confirm"])) {
+if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["passwordConfirm"])) {
     
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars($_POST["password"]);
-    $password_confirm = htmlspecialchars($_POST["password_confirm"]);
+    $passwordConfirm = htmlspecialchars($_POST["passwordConfirm"]);
 
-    if($email === "" || $password === "" || $password_confirm === "") {
-        $register_error = "All fields are required.";
+    if($email === "" || $password === "" || $passwordConfirm === "") {
+        $registerError = "All fields are required.";
     } elseif(strlen($password) < 8) {
-        $register_error = "Password must be at least 8 characters long.";
-    } elseif($password !== $password_confirm) {
-        $register_error = "Passwords don't match.";
+        $registerError = "Password must be at least 8 characters long.";
+    } elseif($password !== $passwordConfirm) {
+        $registerError = "Passwords don't match.";
     } else {
         $pdo = (new Database)->connect();            
         $user = new User($email, $password);
@@ -24,7 +24,7 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["password
 } else {
     $email = "";
     $password = "";
-    $password_confirm = "";
+    $passwordConfirm = "";
 }
 
-require_once $view_dir . "pages/register.php";
+require_once $viewDir . "pages/register.php";

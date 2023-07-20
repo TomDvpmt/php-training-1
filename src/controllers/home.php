@@ -1,3 +1,3 @@
 <?php 
 
-require_once $view_dir . "pages/home.php";
+require_once $viewDir . "pages/home.php";

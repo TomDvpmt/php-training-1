@@ -7,8 +7,8 @@
     
 </head>
 <body>
-    <?php require_once $view_dir . "/partials/header.php"; ?>
-    <?php require_once $view_dir . "/partials/nav.php"; ?>
+    <?php require_once $viewDir . "/partials/header.php"; ?>
+    <?php require_once $viewDir . "/partials/nav.php"; ?>
 <main class="main">
     <h1><?= $title; ?></h1>
     <?= $content; ?>  

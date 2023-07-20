@@ -11,4 +11,4 @@ ob_start(); ?>
 
 <?php $content = ob_get_clean();
 
-require_once $view_dir . "layout.php";
+require_once $viewDir . "layout.php";
