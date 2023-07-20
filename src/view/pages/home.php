@@ -6,4 +6,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require_once "./src/view/layout.php";
+<?php require_once $view_dir . "layout.php";

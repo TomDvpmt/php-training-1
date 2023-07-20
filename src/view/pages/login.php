@@ -3,10 +3,10 @@
 <?php ob_start(); ?>
 
 
-<form action="" method="POST" class="form">
+<form method="POST" class="form">
     <?php echo isset($login_error) ? "<p class='error'>" . $login_error . "</p>" : null; ?>
     <div class="form__field">
-        <label for="email">E-mail address :</label>
+        <label for="email">Email address :</label>
         <input type="email" name="email" value="<?= $email; ?>" />
     </div>
     <div class="form__field">
@@ -18,7 +18,7 @@
 
 <?php $content = ob_get_clean(); 
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/view/layout.php"; ?>
+require_once $view_dir . "layout.php";
 
 
 

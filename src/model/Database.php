@@ -1,27 +1,43 @@
 <?php
 
 class Database {
-    private string $host = "localhost";
-    private string $dbname = "phptraining";
-    private string $user = "php_user";
-    private string $password = "php-password";
-
-    private function setUp() {
-        echo "setting up" . "<br />";
+    private string $host;
+    private string $dbname;
+    private string $user;
+    private string $password;
+    
+    public function __construct()
+    {
+        $this->host = $_SERVER["DB_HOST"];
+        $this->dbname = $_SERVER["DB_NAME"];
+        $this->user = $_SERVER["DB_USER"];
+        $this->password = $_SERVER["DB_PASSWORD"];
     }
 
+    
     public function connect() {
-
-        self::setUp();
-
         $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->dbname;
+        
         try {
             $pdo = new PDO($dsn, $this->user, $this->password);
-            echo "Connected to db.";
             return $pdo;
         } catch (Exception $e) {
             die("Error : " . $e->getMessage());
         }
+    }
+    
+    public function setup() {
+        $pdo = self::connect();
+
+        $sql = "
+        CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(100) NOT NULL,
+            password_hash VARCHAR(500) NOT NULL
+        );
+        ";
+
+        $pdo->query($sql);
     }
 
 }

@@ -1,4 +1,3 @@
 <?php 
 
-$root = htmlspecialchars($_SERVER["DOCUMENT_ROOT"]);
-require_once $root . "/src/view/pages/home.php";
+require_once $view_dir . "pages/home.php";
