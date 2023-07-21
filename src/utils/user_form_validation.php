@@ -2,14 +2,36 @@
 
 $emptyFieldsError = "<p class='error'>All fields are required.</p>";
 
+/**
+ * Checks if the email input's format is valid.
+ * 
+ * @param string $email
+ * @return bool
+ */
+
 function isEmailValid($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+/**
+ * Converts an array of error messages (strings) to a string with html tags.
+ * 
+ * @param array $errorMessages
+ * @return string
+ */
+
 function convertArrayToHtmlString($errorMessages) {
-    $htmlErrors = array_map(fn($message) => "<p class='error'>" . $message . "</p>", $errorMessages);
+    $htmlErrors = array_map(fn($message) => "<p class='error'>- " . $message . "</p>", $errorMessages);
     return implode("", $htmlErrors);
 }
+
+/**
+ * Gets the html code for login errors display.
+ * 
+ * @param string $email
+ * @param string $password
+ * @return string
+ */
 
 function getLoginErrors($email, $password) {
     global $emptyFieldsError;
@@ -26,6 +48,15 @@ function getLoginErrors($email, $password) {
     $htmlErrors = convertArrayToHtmlString($loginErrors);
     return $htmlErrors;
 }
+
+/**
+ * Gets the html code for register errors display.
+ * 
+ * @param string $email
+ * @param string $password
+ * @param string $passwordConfirm
+ * @return string
+ */
 
 function getRegisterErrors($email, $password, $passwordConfirm) {
     global $emptyFieldsError;

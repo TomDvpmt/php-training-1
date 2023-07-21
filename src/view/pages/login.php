@@ -2,9 +2,8 @@
 
 <?php ob_start(); ?>
 
-
 <form method="POST" class="form">
-    <?php echo isset($loginErrors) ? $loginErrors : null; ?>
+    <div class="form__errors"><?= isset($loginErrors) ? $loginErrors : null; ?></div>
     <div class="form__field">
         <label for="email">Email address :</label>
         <input type="text" name="email" value="<?= $email; ?>" />

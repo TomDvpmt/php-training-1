@@ -2,6 +2,13 @@
     max-width: 300px;
     margin: 4rem auto;
 
+    &__errors {
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
     &__field {
         margin-bottom: 1rem;
         display: flex;

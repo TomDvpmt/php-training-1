@@ -1,8 +1,9 @@
+<?php declare(strict_types=1); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <?php 
-
 
 // define main paths
 $rootDir = htmlspecialchars(($_SERVER["DOCUMENT_ROOT"]));

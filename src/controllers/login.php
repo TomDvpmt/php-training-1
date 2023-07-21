@@ -18,8 +18,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
         if(!$userExists) {
             $loginErrors = "<p class='error'>Wrong email and/or password.</p>";
         }
-    }
-    
+    } 
 
 } else {
     $email = "";

@@ -14,6 +14,11 @@ class Database {
         $this->password = $_SERVER["DB_PASSWORD"];
     }
 
+    /**
+     * Connects to the database with PDO
+     * 
+     * @return object
+     */
     
     public function connect() {
         $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->dbname;
@@ -25,6 +30,13 @@ class Database {
             die("Error : " . $e->getMessage());
         }
     }
+
+    /**
+     * Sets up the database.
+     * 
+     * Creates tables if the don't exist.
+     * 
+     */
     
     public function setup() {
         $pdo = self::connect();

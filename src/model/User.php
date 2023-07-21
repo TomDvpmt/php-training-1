@@ -10,10 +10,37 @@ class User {
         private array $purchasedItems = []
         ) {}
 
+    /**
+     * Checks if the user's email already exists in the database.
+     * 
+     * @param object $pdo
+     * @return bool
+     */
+
+    public function checkIfUserExists($pdo) {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $statement = $pdo->prepare($sql);
+        $statement->execute(["email" => $this->email]);
+        $result = $statement->fetch();
+        return !empty($result);
+    }
+
+    /**
+     * Registers the user. 
+     * 
+     * @param object $pdo
+     */
+
     public function register($pdo) {
         //
         
     }
+
+    /**
+     * Logs the user in.
+     * 
+     * @param object $pdo
+     */
 
     public function login($pdo) {
         $sql = "";
@@ -25,14 +52,6 @@ class User {
         // else setUserId() and return user info + response 200
         // put user info in session
         // redirect home
-    }
-
-    public function checkIfUserExists($pdo) {
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $statement = $pdo->prepare($sql);
-        $statement->execute(["email" => $this->email]);
-        $result = $statement->fetch();
-        return !empty($result);
     }
 
 }

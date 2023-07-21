@@ -2,6 +2,7 @@
 
 require_once $modelDir . "User.php";
 require_once $modelDir . "Database.php";
+require_once $utilsDir . "user_form_validation.php";
 
 if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["passwordConfirm"])) {
     
@@ -9,13 +10,9 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["password
     $password = htmlspecialchars($_POST["password"]);
     $passwordConfirm = htmlspecialchars($_POST["passwordConfirm"]);
 
-    if($email === "" || $password === "" || $passwordConfirm === "") {
-        $registerError = "All fields are required.";
-    } elseif(strlen($password) < 8) {
-        $registerError = "Password must be at least 8 characters long.";
-    } elseif($password !== $passwordConfirm) {
-        $registerError = "Passwords don't match.";
-    } else {
+    $registerErrors = getRegisterErrors($email, $password, $passwordConfirm);
+
+    if(empty($registerErrors)) {
         $pdo = (new Database)->connect();            
         $user = new User($email, $password);
         $user->register($pdo);

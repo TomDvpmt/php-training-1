@@ -4,7 +4,7 @@
 
 
 <form method="POST" class="form">
-    <?php echo isset($registerErrors) ? "<p class='error'>" . $registerErrors . "</p>" : null; ?>
+    <div class="form__errors"><?= isset($registerErrors) ? $registerErrors : null; ?></div>
     <div class="form__field">
         <label for="email">Email address :</label>
         <input type="email" name="email" value="<?= $email; ?>" />
