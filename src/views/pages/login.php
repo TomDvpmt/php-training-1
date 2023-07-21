@@ -17,7 +17,7 @@
 
 <?php $content = ob_get_clean(); 
 
-require_once $viewDir . "layout.php";
+require_once $viewsDir . "layout.php";
 
 
 

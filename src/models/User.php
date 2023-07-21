@@ -1,5 +1,7 @@
 <?php
 
+namespace PhpTraining\Models;
+
 class User {
     
     public function __construct(

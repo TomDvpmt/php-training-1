@@ -1,5 +1,10 @@
 <?php
 
+namespace PhpTraining\Models;
+
+use Exception;
+use PDO;
+
 class Database {
     private string $host;
     private string $dbname;
